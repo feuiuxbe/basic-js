@@ -13,8 +13,10 @@ module.exports = function dateSample(sampleActivity) {
   if (sampleActivityToNumber <= 0 && sampleActivityToNumber > 10) {
     return false;
   }
-  if (typeof sampleActivityToNumber !== 'number') return false;
-  return Math.ceil(
+  // if (typeof sampleActivityToNumber !== 'number') return false;
+  var result = Math.ceil(
     (Math.log(MODERN_ACTIVITY / sampleActivityToNumber)) / (0.693 / HALF_LIFE_PERIOD)
   );
+  if (result <= 0 || result > 1000000) return false;
+  return result;
 };
