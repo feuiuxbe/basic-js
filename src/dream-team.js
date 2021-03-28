@@ -11,6 +11,7 @@ module.exports = function createDreamTeam(membersArray) {
   Вернуть результат сортировки 
   */
   if (Array.isArray(membersArray) === false) return false;
+  if (membersArray.length === 0) return false;
   var newArrayFrom_membersArray = [];
   for (let i=0; i < membersArray.length; i++) {
     if (typeof membersArray[i] === 'string') {
@@ -20,7 +21,8 @@ module.exports = function createDreamTeam(membersArray) {
       else {
         for (let k = 0; k < membersArray[i].length; k++) {
           if (membersArray[i].charAt(k).match("[A-Za-z]")) {
-            newArrayFrom_membersArray = newArrayFrom_membersArray + membersArray[i].charAt(k).toUpperCase(); 
+            newArrayFrom_membersArray = newArrayFrom_membersArray + membersArray[i].charAt(k).toUpperCase();
+            break; 
           }
         }
       }
